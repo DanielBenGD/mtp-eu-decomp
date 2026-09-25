@@ -1,0 +1,4 @@
+address,mode,name,note
+0x08000470,arm,_start,Cartridge entry point
+0x0800070C,arm,irq_handler,IRQ dispatcher installed by _start
+0x08013348,thumb,AgbMain,Thumb target called by _start

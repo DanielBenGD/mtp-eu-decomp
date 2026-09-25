@@ -1,0 +1,15 @@
+# User-supplied copyrighted material
+*.gba
+*.rom
+
+# Generated target/base artifacts
+build/
+objdiff.json.user
+
+# Local tooling
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+.vscode/
+.idea/

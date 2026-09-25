@@ -1,0 +1,55 @@
+{
+  "name": "Mario Power Tennis (Europe)",
+  "internal_title": "MARIOTENNISA",
+  "game_code": "BTMP",
+  "maker_code": "01",
+  "revision": 0,
+  "rom_size": 16777216,
+  "md5": "f6c0a645317d6ed90abc4e04f7b33b46",
+  "sha1": "d61990974040d405b5bf8436ac8e1e0beb0f7964",
+  "sha256": "0a27490e4cfa8ea137b82d9157bc647c8b6df132f98b85999934d9b8784af622",
+  "entry_address": "0x08000470",
+  "save_type": "SRAM",
+  "units": [
+    {
+      "name": "crt0",
+      "rom_offset": "0x470",
+      "size": "0x44",
+      "mode": "arm",
+      "expected_sha256": "996913c04b56607b4beeb352f13cb7415daceddf3aef423e64fcfee692bf0db4",
+      "source": "src/crt0.s",
+      "category": "boot",
+      "address": "0x08000470"
+    },
+    {
+      "name": "ram_veneers",
+      "rom_offset": "0x2190",
+      "address": "0x08002190",
+      "size": "0x20",
+      "mode": "thumb",
+      "source": "src/sdk/ram_veneers.s",
+      "category": "sdk",
+      "expected_sha256": "b49be42319f5493b02398a5a75a2b0326fb8056cc7ca35631f9fd3fc3adabd53"
+    },
+    {
+      "name": "irq_ack_helpers",
+      "rom_offset": "0x13288",
+      "address": "0x08013288",
+      "size": "0x28",
+      "mode": "thumb",
+      "source": "src/sdk/irq_ack_helpers.s",
+      "category": "sdk",
+      "expected_sha256": "36885792af3a5557eeff1b9cb579f3a2005bf8b7f3cd8ebbaf8f9c01fae15efb"
+    },
+    {
+      "name": "irq_callback_set",
+      "rom_offset": "0x150fc",
+      "address": "0x080150FC",
+      "size": "0x14",
+      "mode": "thumb",
+      "source": "src/sdk/irq_callback_set.s",
+      "category": "sdk",
+      "expected_sha256": "74548d46b98c2b8882474c77c4ec00bb4106cc16a7d8b0a309848aab9043ce2e"
+    }
+  ]
+}

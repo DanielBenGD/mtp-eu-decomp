@@ -1,0 +1,37 @@
+{
+  "$schema": "https://raw.githubusercontent.com/encounter/objdiff/main/config.schema.json",
+  "custom_make": "make",
+  "build_target": true,
+  "build_base": true,
+  "units": [
+    {
+      "name": "boot/crt0",
+      "target_path": "build/target/crt0.elf",
+      "base_path": "build/base/crt0.elf",
+      "metadata": { "progress_categories": ["boot"] }
+    },
+    {
+      "name": "sdk/ram_veneers",
+      "target_path": "build/target/ram_veneers.elf",
+      "base_path": "build/base/ram_veneers.elf",
+      "metadata": { "progress_categories": ["sdk"] }
+    },
+    {
+      "name": "sdk/irq_ack_helpers",
+      "target_path": "build/target/irq_ack_helpers.elf",
+      "base_path": "build/base/irq_ack_helpers.elf",
+      "metadata": { "progress_categories": ["sdk"] }
+    },
+    {
+      "name": "sdk/irq_callback_set",
+      "target_path": "build/target/irq_callback_set.elf",
+      "base_path": "build/base/irq_callback_set.elf",
+      "metadata": { "progress_categories": ["sdk"] }
+    }
+  ],
+  "progress_categories": [
+    { "id": "boot", "name": "Boot" },
+    { "id": "game", "name": "Game" },
+    { "id": "sdk", "name": "SDK" }
+  ]
+}
