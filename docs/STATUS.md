@@ -20,6 +20,15 @@
 CI assembles all clean units without a ROM and verifies their reviewed target
 hashes. A local legal dump enables byte-for-byte base/target comparison.
 
+
+## Buildability
+
+- **GBA:** playable hybrid rebuild; 160 bytes currently come from clean matching
+  source and the remaining undecompiled code/data comes from the legal base ROM.
+- **PC:** native C99 runtime builds on Linux and Windows x86, validates the EU
+  ROM, and implements the initial GBA memory regions. Gameplay execution, GPU,
+  audio, input, timing, and saves remain to be translated.
+
 ## Code-map milestone
 
 `tools/map_functions.py` performs conservative recursive ARM7TDMI discovery

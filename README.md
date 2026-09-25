@@ -50,6 +50,28 @@ python3 tools/check_match.py --base-only
 
 Current verified result: **4 units, 160/160 bytes matching**.
 
+
+## Build targets
+
+### GBA hybrid rebuild
+
+`make gba ROM=/path/to/mariopowertenniseudump.gba` verifies the EU dump,
+assembles every reviewed clean-source unit, and inserts those units into a local
+copy of the user-provided ROM. The current output is byte-identical and playable
+on GBA hardware/emulators. Undecompiled code and assets still come from the
+user's ROM and are never committed.
+
+### Native PC runtime
+
+`make pc` builds `build/pc/mpt_pc`. The runtime validates the EU ROM and provides
+the initial GBA memory map needed by translated functions. Linux and Windows
+x86 builds are covered by GitHub Actions. **Gameplay is not translated yet**;
+the PC target currently initializes and exits rather than running the game.
+
+This distinction is intentional: the GBA target is playable now as a hybrid
+matching rebuild, while the native PC port becomes playable as game functions,
+video, audio, input, timing, and save support are implemented.
+
 ## Function mapping
 
 The mapper follows direct ARM/Thumb calls from reviewed entry points and writes

@@ -1,0 +1,18 @@
+name: Validate clean source
+on: [push, pull_request]
+jobs:
+  build-matching-units:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ARM-capable LLVM tools
+        run: sudo apt-get update && sudo apt-get install -y clang lld llvm
+      - name: Ensure proprietary and generated files are absent
+        run: |
+          ! find . -type f \( -iname '*.gba' -o -iname '*.rom' -o -iname '*.bin' -o -iname '*.elf' -o -iname '*.o' \) | grep .
+      - name: Check Python tools
+        run: python3 -m py_compile tools/*.py
+      - name: Build clean source units
+        run: python3 tools/build.py base
+      - name: Verify reviewed target hashes
+        run: python3 tools/check_match.py --base-only

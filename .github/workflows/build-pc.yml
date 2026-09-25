@@ -1,0 +1,19 @@
+name: Build PC runtime
+on: [push, pull_request]
+jobs:
+  native-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: cmake -S . -B build/pc -DCMAKE_BUILD_TYPE=Release
+      - run: cmake --build build/pc --config Release
+  windows-x86:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y gcc-mingw-w64-i686
+      - run: i686-w64-mingw32-gcc -std=c99 -O2 -Wall -Wextra -Ipc/include pc/src/main.c pc/src/runtime.c -o mpt_pc_x86.exe
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mpt-pc-windows-x86
+          path: mpt_pc_x86.exe
