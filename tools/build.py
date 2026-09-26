@@ -40,8 +40,9 @@ def compile_asm(source: Path, obj: Path, mode: str):
     )
 
 
-def link_unit(obj: Path, out: Path, address: str, script: Path):
-    script.write_text(f"SECTIONS {{ . = {address}; .text : {{ *(.text*) }} }}\n")
+def link_unit(obj: Path, out: Path, address: str, script: Path, symbols=None):
+    definitions = "".join(f"{name} = {value};\n" for name, value in (symbols or {}).items())
+    script.write_text(definitions + f"SECTIONS {{ . = {address}; .text : {{ *(.text*) }} }}\n")
     lld = tool("LD_LLD", ["ld.lld"])
     run(lld, "-m", "armelf", "--entry=0", "-T", script, "-o", out, obj)
 
@@ -53,7 +54,7 @@ def build_base():
         name = unit["name"]
         obj = directory / f"{name}.o"
         compile_asm(ROOT / unit["source"], obj, unit["mode"])
-        link_unit(obj, directory / f"{name}.elf", unit["address"], directory / f"{name}.ld")
+        link_unit(obj, directory / f"{name}.elf", unit["address"], directory / f"{name}.ld", unit.get("symbols"))
 
 
 def verify_rom(path: Path):
@@ -79,7 +80,7 @@ def build_target(rom_path: Path):
         )
         obj = directory / f"{name}.o"
         compile_asm(asm, obj, unit["mode"])
-        link_unit(obj, directory / f"{name}.elf", unit["address"], directory / f"{name}.ld")
+        link_unit(obj, directory / f"{name}.elf", unit["address"], directory / f"{name}.ld", unit.get("symbols"))
 
 
 def main():

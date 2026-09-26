@@ -48,7 +48,7 @@ make base
 python3 tools/check_match.py --base-only
 ```
 
-Current verified result: **4 units, 160/160 bytes matching**.
+Current verified result: **12 units, 94/94 reviewed instructions and 284/284 bytes matching**.
 
 
 ## Build targets
@@ -71,6 +71,23 @@ the PC target currently initializes and exits rather than running the game.
 This distinction is intentional: the GBA target is playable now as a hybrid
 matching rebuild, while the native PC port becomes playable as game functions,
 video, audio, input, timing, and save support are implemented.
+
+## Accuracy measurement
+
+The first pass targets instruction matching. With a legal local ROM:
+
+```sh
+make all ROM=/path/to/mariopowertenniseudump.gba
+make instruction-check
+make analyze ROM=/path/to/mariopowertenniseudump.gba
+make progress
+```
+
+Current reviewed accuracy is **94/94 instructions (100%)**. Those instructions
+cover **1.06%** of the current 8,877-instruction heuristic candidate map. This is
+not yet a whole-game percentage because indirect calls and all code boundaries
+still require review. All reviewed units also happen to be byte-identical
+(284/284 bytes), but instruction coverage is the active milestone.
 
 ## Function mapping
 

@@ -8,30 +8,135 @@
       "name": "boot/crt0",
       "target_path": "build/target/crt0.elf",
       "base_path": "build/base/crt0.elf",
-      "metadata": { "progress_categories": ["boot"] }
+      "metadata": {
+        "progress_categories": [
+          "boot"
+        ]
+      }
     },
     {
       "name": "sdk/ram_veneers",
       "target_path": "build/target/ram_veneers.elf",
       "base_path": "build/base/ram_veneers.elf",
-      "metadata": { "progress_categories": ["sdk"] }
+      "metadata": {
+        "progress_categories": [
+          "sdk"
+        ]
+      }
     },
     {
       "name": "sdk/irq_ack_helpers",
       "target_path": "build/target/irq_ack_helpers.elf",
       "base_path": "build/base/irq_ack_helpers.elf",
-      "metadata": { "progress_categories": ["sdk"] }
+      "metadata": {
+        "progress_categories": [
+          "sdk"
+        ]
+      }
     },
     {
       "name": "sdk/irq_callback_set",
       "target_path": "build/target/irq_callback_set.elf",
       "base_path": "build/base/irq_callback_set.elf",
-      "metadata": { "progress_categories": ["sdk"] }
+      "metadata": {
+        "progress_categories": [
+          "sdk"
+        ]
+      }
+    },
+    {
+      "name": "game/sub_08016678",
+      "target_path": "build/target/sub_08016678.elf",
+      "base_path": "build/base/sub_08016678.elf",
+      "metadata": {
+        "progress_categories": [
+          "game"
+        ]
+      }
+    },
+    {
+      "name": "game/sub_08017524",
+      "target_path": "build/target/sub_08017524.elf",
+      "base_path": "build/base/sub_08017524.elf",
+      "metadata": {
+        "progress_categories": [
+          "game"
+        ]
+      }
+    },
+    {
+      "name": "game/sub_0801a240",
+      "target_path": "build/target/sub_0801a240.elf",
+      "base_path": "build/base/sub_0801a240.elf",
+      "metadata": {
+        "progress_categories": [
+          "game"
+        ]
+      }
+    },
+    {
+      "name": "game/sub_0801aca0",
+      "target_path": "build/target/sub_0801aca0.elf",
+      "base_path": "build/base/sub_0801aca0.elf",
+      "metadata": {
+        "progress_categories": [
+          "game"
+        ]
+      }
+    },
+    {
+      "name": "game/sub_0801bfe8",
+      "target_path": "build/target/sub_0801bfe8.elf",
+      "base_path": "build/base/sub_0801bfe8.elf",
+      "metadata": {
+        "progress_categories": [
+          "game"
+        ]
+      }
+    },
+    {
+      "name": "game/sub_0801bff4",
+      "target_path": "build/target/sub_0801bff4.elf",
+      "base_path": "build/base/sub_0801bff4.elf",
+      "metadata": {
+        "progress_categories": [
+          "game"
+        ]
+      }
+    },
+    {
+      "name": "sdk/bios_wrappers",
+      "target_path": "build/target/bios_wrappers.elf",
+      "base_path": "build/base/bios_wrappers.elf",
+      "metadata": {
+        "progress_categories": [
+          "sdk"
+        ]
+      }
+    },
+    {
+      "name": "sdk/sub_0801c688",
+      "target_path": "build/target/sub_0801c688.elf",
+      "base_path": "build/base/sub_0801c688.elf",
+      "metadata": {
+        "progress_categories": [
+          "sdk"
+        ]
+      }
     }
   ],
   "progress_categories": [
-    { "id": "boot", "name": "Boot" },
-    { "id": "game", "name": "Game" },
-    { "id": "sdk", "name": "SDK" }
+    {
+      "id": "boot",
+      "name": "Boot"
+    },
+    {
+      "id": "game",
+      "name": "Game"
+    },
+    {
+      "id": "sdk",
+      "name": "SDK"
+    }
   ]
 }

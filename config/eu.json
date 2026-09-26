@@ -19,7 +19,14 @@
       "expected_sha256": "996913c04b56607b4beeb352f13cb7415daceddf3aef423e64fcfee692bf0db4",
       "source": "src/crt0.s",
       "category": "boot",
-      "address": "0x08000470"
+      "address": "0x08000470",
+      "instruction_count": 13,
+      "instruction_ranges": [
+        [
+          0,
+          52
+        ]
+      ]
     },
     {
       "name": "ram_veneers",
@@ -29,7 +36,26 @@
       "mode": "thumb",
       "source": "src/sdk/ram_veneers.s",
       "category": "sdk",
-      "expected_sha256": "b49be42319f5493b02398a5a75a2b0326fb8056cc7ca35631f9fd3fc3adabd53"
+      "expected_sha256": "b49be42319f5493b02398a5a75a2b0326fb8056cc7ca35631f9fd3fc3adabd53",
+      "instruction_count": 8,
+      "instruction_ranges": [
+        [
+          0,
+          4
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          16,
+          4
+        ],
+        [
+          24,
+          4
+        ]
+      ]
     },
     {
       "name": "irq_ack_helpers",
@@ -39,7 +65,18 @@
       "mode": "thumb",
       "source": "src/sdk/irq_ack_helpers.s",
       "category": "sdk",
-      "expected_sha256": "36885792af3a5557eeff1b9cb579f3a2005bf8b7f3cd8ebbaf8f9c01fae15efb"
+      "expected_sha256": "36885792af3a5557eeff1b9cb579f3a2005bf8b7f3cd8ebbaf8f9c01fae15efb",
+      "instruction_count": 18,
+      "instruction_ranges": [
+        [
+          0,
+          22
+        ],
+        [
+          24,
+          14
+        ]
+      ]
     },
     {
       "name": "irq_callback_set",
@@ -49,7 +86,172 @@
       "mode": "thumb",
       "source": "src/sdk/irq_callback_set.s",
       "category": "sdk",
-      "expected_sha256": "74548d46b98c2b8882474c77c4ec00bb4106cc16a7d8b0a309848aab9043ce2e"
+      "expected_sha256": "74548d46b98c2b8882474c77c4ec00bb4106cc16a7d8b0a309848aab9043ce2e",
+      "instruction_count": 5,
+      "instruction_ranges": [
+        [
+          0,
+          10
+        ]
+      ]
+    },
+    {
+      "name": "sub_08016678",
+      "rom_offset": "0x16678",
+      "address": "0x08016678",
+      "size": "0xc",
+      "mode": "thumb",
+      "source": "src/game/sub_08016678.s",
+      "category": "game",
+      "instruction_count": 6,
+      "expected_sha256": "fbf16235f7580bb2421ec31b18bf042aa84a6904966db9d749cb658f55fd195b",
+      "instruction_ranges": [
+        [
+          0,
+          12
+        ]
+      ]
+    },
+    {
+      "name": "sub_08017524",
+      "rom_offset": "0x17524",
+      "address": "0x08017524",
+      "size": "0xc",
+      "mode": "thumb",
+      "source": "src/game/sub_08017524.s",
+      "category": "game",
+      "instruction_count": 4,
+      "expected_sha256": "7c7cd4c1e7f07e322dcccca5d24f61a9dbbffa9fc15f6962e99240080d5b6b4a",
+      "instruction_ranges": [
+        [
+          0,
+          8
+        ]
+      ]
+    },
+    {
+      "name": "sub_0801a240",
+      "rom_offset": "0x1a240",
+      "address": "0x0801A240",
+      "size": "0xc",
+      "mode": "thumb",
+      "source": "src/game/sub_0801a240.s",
+      "category": "game",
+      "instruction_count": 5,
+      "expected_sha256": "845b957cdd7e3e42c382bf0d2720dfa06a90fa5dc2a8af0c6ad334b6f2efdbb1",
+      "symbols": {
+        "sub_08019ea8": "0x08019EA9"
+      },
+      "instruction_ranges": [
+        [
+          0,
+          12
+        ]
+      ]
+    },
+    {
+      "name": "sub_0801aca0",
+      "rom_offset": "0x1aca0",
+      "address": "0x0801ACA0",
+      "size": "0xc",
+      "mode": "thumb",
+      "source": "src/game/sub_0801aca0.s",
+      "category": "game",
+      "instruction_count": 6,
+      "expected_sha256": "a1d4cff84928e9cc23658b921e973ba616a0d2b89b2a9547a4526d9662daeb9f",
+      "instruction_ranges": [
+        [
+          0,
+          12
+        ]
+      ]
+    },
+    {
+      "name": "sub_0801bfe8",
+      "rom_offset": "0x1bfe8",
+      "address": "0x0801BFE8",
+      "size": "0xc",
+      "mode": "thumb",
+      "source": "src/game/sub_0801bfe8.s",
+      "category": "game",
+      "instruction_count": 6,
+      "expected_sha256": "641037c096bbe23e30f2896a780553ba67c6b104b8390a3006fb2cf198a7e939",
+      "instruction_ranges": [
+        [
+          0,
+          12
+        ]
+      ]
+    },
+    {
+      "name": "sub_0801bff4",
+      "rom_offset": "0x1bff4",
+      "address": "0x0801BFF4",
+      "size": "0x8",
+      "mode": "thumb",
+      "source": "src/game/sub_0801bff4.s",
+      "category": "game",
+      "instruction_count": 3,
+      "expected_sha256": "6ff3787b4d1c64db4142b31cf4a77abd0c75c69ba3488e96a2c5393c11e177d4",
+      "symbols": {
+        "ram_veneer_0300052c": "0x08002191"
+      },
+      "instruction_ranges": [
+        [
+          0,
+          8
+        ]
+      ]
+    },
+    {
+      "name": "bios_wrappers",
+      "rom_offset": "0x1c28a",
+      "address": "0x0801C28A",
+      "size": "0x14",
+      "mode": "thumb",
+      "source": "src/sdk/bios_wrappers.s",
+      "category": "sdk",
+      "instruction_count": 8,
+      "expected_sha256": "a18da6f20b2d3719e61f7ddda817dea0fc8bbd8932ff06d0de55928710b32fbe",
+      "instruction_ranges": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          12,
+          6
+        ]
+      ]
+    },
+    {
+      "name": "sub_0801c688",
+      "rom_offset": "0x1c688",
+      "address": "0x0801C688",
+      "size": "0x24",
+      "mode": "thumb",
+      "source": "src/sdk/sub_0801c688.s",
+      "category": "sdk",
+      "instruction_count": 12,
+      "expected_sha256": "dcf43b1c4b830a4761aa42d076a4eceda26113f922d0ebe0143c508bfc84816e",
+      "instruction_ranges": [
+        [
+          0,
+          8
+        ],
+        [
+          12,
+          8
+        ],
+        [
+          24,
+          8
+        ]
+      ]
     }
   ]
 }

@@ -10,9 +10,13 @@ jobs:
       - name: Ensure proprietary and generated files are absent
         run: |
           ! find . -type f \( -iname '*.gba' -o -iname '*.rom' -o -iname '*.bin' -o -iname '*.elf' -o -iname '*.o' \) | grep .
+      - name: Install instruction matcher
+        run: python3 -m pip install "capstone>=5,<6"
       - name: Check Python tools
         run: python3 -m py_compile tools/*.py
       - name: Build clean source units
         run: python3 tools/build.py base
       - name: Verify reviewed target hashes
         run: python3 tools/check_match.py --base-only
+      - name: Verify reviewed instruction counts
+        run: python3 tools/check_instructions.py --base-only

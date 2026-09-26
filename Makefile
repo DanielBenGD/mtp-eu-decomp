@@ -2,7 +2,7 @@ PYTHON ?= python3
 CC ?= cc
 ROM ?= baserom_eu.gba
 
-.PHONY: all base target gba pc check analyze clean verify
+.PHONY: all base target gba pc check instruction-check progress analyze clean verify
 all: base target check
 base:
 	$(PYTHON) tools/build.py base
@@ -15,6 +15,10 @@ pc:
 	$(CC) -std=c99 -O2 -Wall -Wextra -Wpedantic -Ipc/include pc/src/main.c pc/src/runtime.c -o build/pc/mpt_pc
 check:
 	$(PYTHON) tools/check_match.py
+instruction-check:
+	$(PYTHON) tools/check_instructions.py
+progress:
+	$(PYTHON) tools/progress.py
 verify:
 	$(PYTHON) tools/verify_rom.py "$(ROM)"
 analyze: verify

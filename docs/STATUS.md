@@ -9,21 +9,28 @@
 
 ## Verified matching source
 
-| Unit | Address | Size | Category | Status |
-|---|---:|---:|---|---|
-| Reset/startup (`crt0`) | `0x08000470` | 68 bytes | Boot | Matching |
-| IWRAM veneers | `0x08002190` | 32 bytes | SDK | Matching |
-| IRQ acknowledgement helpers | `0x08013288` | 40 bytes | SDK | Matching |
-| IRQ callback setter | `0x080150FC` | 20 bytes | SDK | Matching |
-| **Total** | — | **160 bytes** | — | **4/4 units** |
+| Unit group | Units | Instructions | Bytes | Status |
+|---|---:|---:|---:|---|
+| Boot | 1 | 13 | 68 | Instruction + byte match |
+| SDK/runtime | 6 | 51 | 156 | Instruction + byte match |
+| Game leaf routines | 5 | 30 | 60 | Instruction + byte match |
+| **Total** | **12** | **94/94** | **284/284** | **100% reviewed accuracy** |
 
-CI assembles all clean units without a ROM and verifies their reviewed target
-hashes. A local legal dump enables byte-for-byte base/target comparison.
+`tools/check_instructions.py` compares normalized ARM/Thumb instruction streams
+for reviewed code ranges. `tools/check_match.py` separately verifies every byte,
+including literal pools and padding. A local legal dump enables target checks;
+CI validates clean source against reviewed hashes without containing the ROM.
 
+### Coverage versus accuracy
+
+- Reviewed instruction accuracy: **94/94 (100%)**
+- Coverage of the current heuristic map: **94/8,877 (1.06%)**
+- Whole-game coverage: **not claimed yet**, because the complete code denominator
+  has not been established
 
 ## Buildability
 
-- **GBA:** playable hybrid rebuild; 160 bytes currently come from clean matching
+- **GBA:** playable hybrid rebuild; 284 bytes currently come from clean matching
   source and the remaining undecompiled code/data comes from the legal base ROM.
 - **PC:** native C99 runtime builds on Linux and Windows x86, validates the EU
   ROM, and implements the initial GBA memory regions. Gameplay execution, GPU,
@@ -51,4 +58,4 @@ reviewed before it is promoted to an objdiff unit or counted on decomp.dev.
 3. Separate SDK/library code from Camelot game code.
 4. Convert leaf routines from matching assembly to readable matching C.
 5. Build the complete code denominator and generate an objdiff progress report.
-6. Publish the GitHub repository, then request its decomp.dev listing.
+6. Generate a complete instruction denominator, then publish an objdiff report and request the decomp.dev listing.
